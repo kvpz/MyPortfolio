@@ -1,0 +1,9 @@
+{
+  "id": "sparse-matrix",
+  "programmingLanguages": [
+    "C++",
+    "C"
+  ],
+  "description": "An API that efficiently stores large matrices, specifically sparse matrices, and quickly calculates dot products of such matrices",
+  "image": "Data/img/cplusplus.png"
+}
