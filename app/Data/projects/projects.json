@@ -8,5 +8,10 @@
     "id": "mario",
     "link": "https://github.com/unknotted26/CS50xMiami/blob/master/pset1/mario.c",
     "image": "Cpic.png"
+  },
+  {
+    "id": "imagemanipulation",
+    "link": "https://github.com/unknotted26/CS50xMiami/blob/master/pset4/",
+    "image": "Cpic.png"
   }
 ]

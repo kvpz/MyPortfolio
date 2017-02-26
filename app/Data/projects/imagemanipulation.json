@@ -1,0 +1,8 @@
+{
+  "id": "mario",
+  "programmingLanguages": [
+    "C"
+  ],
+  "description": "Several subprograms were created as an introduction to image manipulation.",
+  "image": "Data/img/Cpic.png"
+}

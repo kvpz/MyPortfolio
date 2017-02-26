@@ -1,0 +1,8 @@
+{
+  "id": "mario",
+  "programmingLanguages": [
+    "C"
+  ],
+  "description": "A simple program that prints a pyramid with the ASCII symbol # using the height the user input.",
+  "image": "Data/img/Cpic.png"
+}
