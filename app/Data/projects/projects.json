@@ -3,5 +3,10 @@
     "id": "sparse-matrix",
     "link": "https://github.com/unknotted26",
     "image": "cplusplus.png"
+  },
+  {
+    "id": "mario",
+    "link": "https://github.com/unknotted26/CS50xMiami/blob/master/pset1/mario.c",
+    "image": "Cpic.png"
   }
 ]
