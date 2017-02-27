@@ -4,8 +4,8 @@ angular
   .module('portfolioPreview')
   .component('portfolioPreview', {
     templateUrl: 'portfolio-preview/portfolio-preview.template.html',
-    controller: ['Project',
-      function PortfolioPreviewController(Project) {
-        this.projects = Project.query();
+    controller: ['projectDataFactory',
+      function PortfolioPreviewController(projectDataFactory) {
+        this.projects = projectDataFactory.query();
     }]
   });

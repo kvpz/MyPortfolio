@@ -2,7 +2,7 @@
 
 angular
   .module('core.project')
-  .factory('Project', ['$resource',
+  .factory('projectDataFactory', ['$resource',
   function($resource) {
     return $resource('Data/projects/:projectId.json', {}, {
       query: {
