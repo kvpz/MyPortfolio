@@ -1,3 +1,5 @@
 'use strict';
 
-angular.module('myApp.home', []);
+angular.module('myApp.home', [
+  'ngRoute'
+]);

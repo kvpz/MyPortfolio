@@ -1,4 +1,6 @@
 'use strict';
 
 angular
-  .module('portfolioPreview', ['core.project']);
+  .module('portfolioPreview', [
+    'core.project'
+  ]);

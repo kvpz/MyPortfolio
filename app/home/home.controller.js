@@ -1,7 +1,9 @@
 angular
   .module('myApp.home')
-  .controller('HomeController', ['$scope',
-    function($scope) {
-      $scope.greeting = "Hello from Home controller";
+  .controller('HomeController', ['$scope', '$route', '$window',
+    function($scope, $route, $window) {
 
+      $scope.refreshPage = function(){
+        $window.location.reload();
+      };
 }]);
