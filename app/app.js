@@ -6,7 +6,7 @@ angular.module('myApp', [
   'core',
   'myApp.home',
   'portfolioPreview',
-
   'projectPage',
-  'myApp.version'
+  'myApp.version',
+  'ui.bootstrap'
 ]);
