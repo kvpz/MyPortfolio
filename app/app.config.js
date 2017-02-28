@@ -9,7 +9,7 @@ angular
           controller: 'HomeController'
           //css: ['css/freelancer.css', 'css/font-awesome/css/font-awesome.css']
         })
-        .when('/allprojects', {
+        .when('/project-pages/:projectId', {
           templateUrl: 'project-pages/projects.html',
           controller: 'ProjectPageController'
         })
