@@ -2,10 +2,20 @@
 
 angular
   .module('projectPage')
-  .controller('ProjectPageController', ['$scope', '$routeParams', '$resource', '$route', '$window',
-    function($scope, $routeParams, $resource, $route, $window) {
-      $scope.projectTitle = $routeParams.projectId;
+  .controller('ProjectPageController', ['$scope', '$routeParams', '$resource', '$window', 'projectDataFactory',
+    function($scope, $routeParams, $resource, $window, projectDataFactory) {
       $scope.wasSubmitted = false;
+      $scope.projectDetails = projectDataFactory({ isArray: false, method: 'GET' }).query({ projectId: $routeParams.projectId });
+      $scope.languages = function(){
+        let lstring = new String();
+        let lans = $scope.projectDetails["programmingLanguages"];
+        for(let lan of lans){
+          lstring += lan;
+          if(lan != lans[lans.length-1])
+            lstring += ", ";
+        }
+        return lstring;
+      };
 
       var testURL = 'https://ideallyconnected.me/cgi-bin/cs50/pset4/resize.sh?multiplier=:multiplier&subbtn=Submit';
       var request = $resource(testURL, null, {

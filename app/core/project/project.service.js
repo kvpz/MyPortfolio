@@ -4,11 +4,14 @@ angular
   .module('core.project')
   .factory('projectDataFactory', ['$resource',
   function($resource) {
-    return $resource('Data/projects/:projectId.json', {}, {
-      query: {
-        method: 'GET',
-        params: { projectId: 'projects' },
-        isArray: true
-      }
-    });
-  }]);
+    return function(config) {
+      return $resource('Data/projects/:projectId.json', {}, {
+        query: angular.extend({
+          method: 'GET',
+          params: {projectId: 'projects'},
+          isArray: true
+        }, config)
+      });
+    };
+  }
+]);
