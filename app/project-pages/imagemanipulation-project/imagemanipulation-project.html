@@ -1,19 +1,123 @@
-<div>
-    There are 3 BMP related programs: <hr />
-    1. COPY which copies a bmp to another bmp (slightly different than CMD's cp command) <hr />
-    2. RESIZE which resize a bmp image <hr />
-    3. WHODONIT which reveals an image from underlying static (red pixels). <hr />
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <h1>
+                        {{ projectDetails["title"] }}
+                        <small>in {{ languages() }}</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-    Starting with RESIZE, an example run would be to transform this little dot right here:
-    <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp" /> <hr />
-    to this (30 times the size):
-    <img src="https://ideallyconnected.me/pset4/largersmiley.bmp"/>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            {{ projectDetails["subprograms"][0] }}
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+            Resize Program
+            <!-- Note that assigned form name is Angular's formController -->
+            <form name="resizeForm" class="form-horizontal" novalidate>
+                <label>Multiplier (1 - 100): </label>
+                <input type="number" name="multiplierInput" ng-model="multiplier"
+                       min="1" max="100" integer/>
+
+                <span ng-show="resizeForm.multiplierInput.$error.integer" style="color: red;">
+                    Enter an integer in range [1,100].
+                </span>
+                <span ng-show="resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max"
+                      style="color: red;">
+                    The value must be in range [1,100].
+                </span>
+                <br/>
+                <button class="btn btn-info" ng-click="message='calculating...'; submit()"
+                        ng-disabled="resizeForm.multiplierInput.$error.integer ||
+                        resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max">
+                    Submit
+                </button>
+                <button class="btn btn-danger" ng-click="reset()">
+                    Refresh
+                </button>
+                <p class="alert alert-warning" ng-show="message && !requestResult.$resolved">
+                    {{ message }}
+                </p>
+            </form>
+
+            <!-- produce html that includes the resize image -->
+            <div ng-show="requestResult.$resolved" ng-bind-html="httpResponseData"></div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Description</h3>
+            {{ projectDetails["subprogramDescription"][projectDetails["subprograms"][0]] }}
+            <p>Increment this image: <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp" /> by your choice of multiplier</p>
+            <h3>Project Details</h3>
+            <ul>
+                <li>Objective</li>
+                <li>Implementation Details</li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+    <!-- Related Projects Row -->
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h3 class="page-header">Other Programs</h3>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+            </a>
+        </div>
+
+    </div>
+
 </div>
 
-<div>
-    <form action="https://ideallyconnected.me/cgi-bin/cs50/pset4/resize.sh" method="get" target="_self">
-        Multiplier: <input type="text" name="multiplier" />
-        <br />
-        <input type="submit" name="subbtn" value="Submit" />
-    </form>
-</div>
+
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Ideally Connected 2017</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>

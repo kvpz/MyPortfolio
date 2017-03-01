@@ -1,8 +1,17 @@
 {
-  "id": "mario",
+  "id": "imagemanipulation",
   "programmingLanguages": [
     "C"
   ],
   "description": "Several subprograms were created as an introduction to image manipulation.",
-  "image": "Data/img/Cpic.png"
+  "image": "Data/img/Cpic.png",
+  "total_subprograms": "4",
+  "subprograms": ["Resize", "Whodonit", "Copy", "Recover"],
+  "title": "Image Manipulation",
+  "subprogramDescription": {
+    "Resize": "Given a bmp file, this program can resize it.",
+    "Whodonit": "N/A",
+    "Copy": "N/A",
+    "Recover": "N/A"
+  }
 }

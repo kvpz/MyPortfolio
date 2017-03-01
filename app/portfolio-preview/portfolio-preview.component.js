@@ -6,6 +6,6 @@ angular
     templateUrl: 'portfolio-preview/portfolio-preview.template.html',
     controller: ['projectDataFactory',
       function (projectDataFactory) {
-        this.projects = projectDataFactory.query();
+        this.projects = projectDataFactory({}).query();
     }]
   });

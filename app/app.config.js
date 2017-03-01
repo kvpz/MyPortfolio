@@ -1,3 +1,7 @@
+var templateFunction = function(arr){
+  return "project-pages/" + arr.projectId + "-project/" + arr.projectId + "-project.html";
+};
+
 angular
   .module('myApp')
   .config(['$locationProvider', '$routeProvider',
@@ -7,11 +11,12 @@ angular
         .when('/home', {
           templateUrl: 'home/home.html',
           controller: 'HomeController'
-          //css: ['css/freelancer.css', 'css/font-awesome/css/font-awesome.css']
         })
         .when('/project-pages/:projectId', {
-          templateUrl: 'project-pages/projects.html',
+          templateUrl: templateFunction,
           controller: 'ProjectPageController'
         })
         .otherwise({redirectTo: '/home'});
-    }]);
+      $routeProvider.eagerInstantiationEnabled(true);
+  }]);
+
