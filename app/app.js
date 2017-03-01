@@ -3,10 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'core',
-  'myApp.home',
+  'ngResource',
   'portfolioPreview',
-  'projectPage',
   'myApp.version',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'myApp.home',
+  'projectPage'
 ]);
