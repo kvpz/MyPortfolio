@@ -37,8 +37,7 @@ angular
         $scope.requestResult = request.newimage({ multiplier: $scope.multiplier });
       };
 
-
-      $scope.reset = function(){
+      $scope.reset = function() {
         $window.location.reload();
-      };
+      }
   }]);
