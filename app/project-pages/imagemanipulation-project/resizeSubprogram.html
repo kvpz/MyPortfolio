@@ -1,0 +1,27 @@
+Resize Program
+<!-- Note that assigned form name is Angular's formController -->
+<form name="resizeForm" class="form-horizontal" novalidate>
+    <label>Multiplier (1 - 100): </label>
+    <input type="number" name="multiplierInput" ng-model="multiplier"
+           min="1" max="100" integer/>
+
+    <span ng-show="resizeForm.multiplierInput.$error.integer" style="color: red;">
+                    Enter an integer in range [1,100].
+    </span>
+    <span ng-show="resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max"
+          style="color: red;">
+                    The value must be in range [1,100].
+    </span>
+    <br/>
+    <button class="btn btn-info" ng-click="message='calculating...'; $ctrl.submit(multiplier)"
+            ng-disabled="resizeForm.multiplierInput.$error.integer ||
+                        resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max">
+        Submit
+    </button>
+    <p class="alert alert-warning" ng-show="message && !$ctrl.requestResult.$resolved">
+        {{ message }}
+    </p>
+</form>
+
+<!-- produce html that includes the resize image -->
+<div ng-show="$ctrl.requestResult.$resolved" ng-bind-html="$ctrl.httpResponseData"></div>

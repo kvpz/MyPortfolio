@@ -5,5 +5,8 @@ angular.module('projectPage',[
   'ngSanitize',
   'ngRoute',
   'core',
-  'utility'
+  'utility',
+  'ngAnimate',
+  'ngTouch',
+  'ui.bootstrap'
 ]);

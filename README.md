@@ -2,7 +2,7 @@ My Portfolio
 ### Development Environment(s)
 I'm using [http-server] on Windows 10 using the default localhost:8000 domain for local testing. The web server however
 runs Ubunutu 16.04 configured with Apache2 as the web server. Because not all servers function the same, I
-am leveraging git to deal with the nuances. Therefore it is vital to adhere to the Git Management section below.
+am leveraging git to deal with the nuances(such as file line endings). Therefore it is vital to adhere to the Git Management section below.
 
 
 ### Git Management
