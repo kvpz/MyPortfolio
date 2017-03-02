@@ -2,6 +2,7 @@ var templateFunction = function(arr){
   return "project-pages/" + arr.projectId + "-project/" + arr.projectId + "-project.html";
 };
 
+
 angular
   .module('myApp')
   .config(['$locationProvider', '$routeProvider',
@@ -24,8 +25,7 @@ angular
             }]
           }
         })
-        .otherwise({redirectTo: '/home'});
-      //$routeProvider.eagerInstantiationEnabled(true);
+        .otherwise({ redirectTo: '/home' });
   }]);
 
 /*
