@@ -2,17 +2,16 @@
 
 angular
   .module('projectPage')
-  .controller('ProjectPageController', ['$scope', '$routeParams', '$resource', '$window', 'projectDataFactory',
-    function($scope, $routeParams, $resource, $window, projectDataFactory) {
+  .controller('ProjectPageController', ['$scope', '$routeParams', '$resource', '$window', 'loadedProjects',
+    function($scope, $routeParams, $resource, $window, loadedProjects) {
       $scope.wasSubmitted = false;
-      $scope.projectDetails = projectDataFactory({ isArray: false, method: 'GET' })
-                                .query({ projectId: $routeParams.projectId });
+      $scope.projectData = loadedProjects;
+      $scope.subprograms = loadedProjects['subprograms'];
 
       // Put programming languages from array into a comma separated string
       $scope.languages = function(){
-        let _lang = new String();
-        var _langs = new Array($scope.projectDetails["programmingLanguages"]);
-        _lang = _langs.join(", ");
+        var _langs = loadedProjects["programmingLanguages"];
+        var _lang = _langs.join(", ");
         return _lang;
       };
 
@@ -37,7 +36,8 @@ angular
         $scope.requestResult = request.newimage({ multiplier: $scope.multiplier });
       };
 
-      $scope.reset = function() {
+      $scope.reset = function(){
         $window.location.reload();
       }
+
   }]);

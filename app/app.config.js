@@ -14,9 +14,21 @@ angular
         })
         .when('/project-pages/:projectId', {
           templateUrl: templateFunction,
-          controller: 'ProjectPageController'
+          controller: 'ProjectPageController',
+          resolve: {
+            loadedProjects: ['projectDataFactory', '$route', function(projectDataFactory, $route){
+              return projectDataFactory({
+                isArray: false,
+                method: 'GET'
+              }).query({ projectId: $route.current.params.projectId }).$promise;
+            }]
+          }
         })
         .otherwise({redirectTo: '/home'});
-      $routeProvider.eagerInstantiationEnabled(true);
+      //$routeProvider.eagerInstantiationEnabled(true);
   }]);
 
+/*
+  In the resolve action, $route must be used instead of $routeParams because $routeParams is only
+  updated after the route has been changed.
+*/
