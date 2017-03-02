@@ -1,9 +1,6 @@
 'use strict';
 
 var subprogramTemplate = function(){
-  console.log("In subprogramTEmplate 1");
-  console.log(this);
-  console.log("In subprogramTemplate");
   return "project-pages/imagemanipulation-project/" + this.require + ".html";
 };
 
@@ -30,7 +27,6 @@ angular
           }
         );
 
-        // Called during form submission
         this.submit = function (multiplier) {
           self.requestResult = request.newimage({multiplier: multiplier});
         };
