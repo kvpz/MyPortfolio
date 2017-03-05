@@ -7,6 +7,8 @@ angular
       $scope.wasSubmitted = false;
       $scope.projectData = loadedProjects;
       $scope.subprograms = loadedProjects['subprograms'];
+      $scope.subprogram = $scope.subprograms[0];
+      $scope.subprogramDescription = loadedProjects[$scope.subprogram];
 
       // Put programming languages from array into a comma separated string
       $scope.languages = function(){
