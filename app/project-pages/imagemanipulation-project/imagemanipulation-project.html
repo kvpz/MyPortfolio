@@ -26,9 +26,9 @@
             <hr />
             <ng-switch on="subprogram">
                 <div ng-switch-when="Resize"><resize-subprogram></resize-subprogram></div>
-                <div ng-switch-when="Whodonit">Whodonit program selected</div>
-                <div ng-switch-when="Copy">Copy program selected</div>
-                <div ng-switch-when="Recover">Recover program selected</div>
+                <div ng-switch-when="Whodonit"><whodonit-subprogram></whodonit-subprogram></div>
+                <div ng-switch-when="Copy"><copy-subprogram></copy-subprogram></div>
+                <div ng-switch-when="Recover"><recover-subprogram></recover-subprogram></div>
                 <div ng-switch-default>No subprogram has been selected</div>
             </ng-switch>
         </div>
@@ -36,12 +36,12 @@
         <div class="col-md-4" ng-show="subprogram">
             <h3>Description</h3>
             {{ subprogramDescription }}
-            <p>Multiply the size of this image:
-                <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp" />
-            </p>
             <h3>Project Details</h3>
             <ul>
                 <li>Objective</li>
+                <p>Multiply the size of this image:
+                    <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp" />
+                </p>
                 <li>Implementation Details</li>
             </ul>
         </div>
