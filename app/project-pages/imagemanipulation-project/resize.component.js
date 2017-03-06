@@ -5,7 +5,7 @@ angular
   .module('projectPage')
   .component('resizeSubprogram', {
     templateUrl: subprogramTemplate,
-    controller: ['$resource', '$window',
+    controller: ['$resource',
       function subprogramController($resource) {
         var self = this;
         var cgiURL = 'https://ideallyconnected.me/cgi-bin/cs50/pset4/resize.sh?multiplier=:multiplier&subbtn=Submit';
@@ -26,6 +26,5 @@ angular
         this.submit = function (multiplier) {
           self.requestResult = request.newimage({multiplier: multiplier});
         };
-
       }]
   });

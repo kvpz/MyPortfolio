@@ -1,40 +1,50 @@
-<h5>Resize Program</h5>
-<!-- Note that assigned form name is Angular's formController -->
-<form name="resizeForm" class="form-horizontal" novalidate>
-    <label>Multiplier (1 - 100): </label>
-    <input type="number" name="multiplierInput" ng-model="multiplier"
-           min="1" max="100" integer/>
+<div class="container">
+    <div class="row">
+        <h5>Resize Program</h5>
+        <!-- Note that assigned form name is Angular's formController -->
+        <div class="col-md-8">
+            <form name="resizeForm" class="form-horizontal" novalidate>
+                <label>Multiplier (1 - 100): </label>
+                <input type="number" name="multiplierInput" ng-model="multiplier"
+                       min="1" max="100" integer/>
 
-    <span ng-show="resizeForm.multiplierInput.$error.integer" style="color: red;">
-        Enter an integer in range [1,100].
-    </span>
-    <span ng-show="resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max"
-          style="color: red;">
-        The value must be in range [1,100].
-    </span>
-    <br/>
-    <button class="btn btn-info" ng-click="message='calculating...'; $ctrl.submit(multiplier)"
-            ng-disabled="resizeForm.multiplierInput.$error.integer ||
+                <span ng-show="resizeForm.multiplierInput.$error.integer" style="color: red;">
+                    Enter an integer in range [1,100].
+                </span>
+                <span ng-show="resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max"
+                      style="color: red;">
+                    The value must be in range [1,100].
+                </span>
+                <br/>
+                <button class="btn btn-info" ng-click="message='calculating...'; $ctrl.submit(multiplier)"
+                        ng-disabled="resizeForm.multiplierInput.$error.integer ||
                         resizeForm.multiplierInput.$error.min || resizeForm.multiplierInput.$error.max">
-        Submit
-    </button>
-    <p class="alert alert-warning" ng-show="message && !$ctrl.requestResult.$resolved">
-        {{ message }}
-    </p>
-</form>
+                    Submit
+                </button>
+                <p class="alert alert-warning" ng-show="message && !$ctrl.requestResult.$resolved">
+                    {{ message }}
+                </p>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h3>Description</h3>
+            Given a 24-bit uncompressed BMP file, this subprogram can scale the image to any size (1-99 times the original size).
+            <h3>Project Details</h3>
+            <ul>
+                <li>Objective</li>
+                <div>
+                    Multiply the size of this image:
+                    <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp"/>
+                </div>
+                <li>Implementation Details</li>
+                <div>
+                    24-bit BMP files store each pixel in 3 bytes of memory where each byte represents red, green and blue.
+                    Note that this program is written in C and is called from the server via a CGI script.
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!-- produce html that includes the resize image -->
+    <div ng-show="$ctrl.requestResult.$resolved" ng-bind-html="$ctrl.httpResponseData"></div>
 
-<!-- produce html that includes the resize image -->
-<div ng-show="$ctrl.requestResult.$resolved" ng-bind-html="$ctrl.httpResponseData"></div>
-
-<div class="col-md-4" ng-show="subprogram">
-    <h3>Description</h3>
-    {{ subprogramDescription }}
-    <h3>Project Details</h3>
-    <ul>
-        <li>Objective</li>
-        <p>Multiply the size of this image:
-            <img src="https://ideallyconnected.me/cs50projects/pset4/smiley.bmp" />
-        </p>
-        <li>Implementation Details</li>
-    </ul>
 </div>

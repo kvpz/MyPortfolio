@@ -20,4 +20,5 @@ angular
         var _lang = _langs.join(", ");
         return _lang;
       };
-  }]);
+    }
+  ]);
