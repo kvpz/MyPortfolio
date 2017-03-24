@@ -16,5 +16,11 @@
     "link": "https://github.com/unknotted26/CS50xMiami/blob/master/pset4/",
     "image": "Cpic.png",
     "title": "Image Manipulation"
+  },
+  {
+    "id": "ideallyconnected",
+    "link": "",
+    "image": "Cpic.png",
+    "title": "The IdeallyConnected App"
   }
 ]
